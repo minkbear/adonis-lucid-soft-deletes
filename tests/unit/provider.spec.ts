@@ -67,3 +67,27 @@ test.group('LucidSoftDeletesProvider', () => {
     )
   })
 })
+
+test.group('SoftDeletes static helpers', () => {
+  test('`withTrashed` resolves to instances of the calling model', async ({ assert }) => {
+    const db = await createDatabase()
+    await createTables(db)
+
+    class User extends compose(BaseModel, SoftDeletes) {
+      @column({ isPrimary: true })
+      declare id: number
+
+      @column()
+      declare username: string
+    }
+    User.boot()
+
+    await User.create({ username: 'alive' })
+
+    const users = await User.withTrashed()
+    assert.deepEqual(
+      users.map(({ username }) => username),
+      ['alive']
+    )
+  })
+})

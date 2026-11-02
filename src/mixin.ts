@@ -66,7 +66,7 @@ export function SoftDeletes<T extends NormalizeConstructor<typeof BaseModel>>(su
      */
     static withTrashed<Model extends typeof ModelWithSoftDeletes>(
       this: Model
-    ): ModelQueryBuilderContractWithIgnoreDeleted<Model, InstanceType<T>> {
+    ): ModelQueryBuilderContractWithIgnoreDeleted<Model, InstanceType<Model>> {
       const query = this.query() as ModelQueryBuilderContractWithIgnoreDeleted<
         Model,
         InstanceType<Model>
