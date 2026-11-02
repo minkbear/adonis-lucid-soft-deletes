@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-/// <reference path="../src/types/querybuilder.ts" />
+/// <reference path="../src/types/querybuilder.ts" preserve="true" />
 
 import type { ApplicationService } from '@adonisjs/core/types'
 import { extendModelQueryBuilder } from '../src/bindings/model_query_builder.js'
