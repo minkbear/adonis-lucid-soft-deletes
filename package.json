@@ -94,7 +94,10 @@
   ],
   "eslintConfig": {
     "root": true,
-    "extends": "@adonisjs/eslint-config/package"
+    "extends": "@adonisjs/eslint-config/package",
+    "ignorePatterns": [
+      "tests/v7-app"
+    ]
   },
   "prettier": "@adonisjs/prettier-config",
   "publishConfig": {

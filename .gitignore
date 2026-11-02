@@ -13,3 +13,4 @@ dist
 shrinkwrap.yaml
 test-helpers/tmp
 yarn.lock
+tests/v7-app
