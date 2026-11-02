@@ -1,12 +1,13 @@
 # Adonis Lucid Soft Deletes
-> Works with AdonisJS v6
+> Version 3.x requires AdonisJS 7, `@adonisjs/lucid@^22` and Node 24 or later
+
+This package is a maintained fork of [`adonis-lucid-soft-deletes`](https://github.com/lookinlab/adonis-lucid-soft-deletes).
 
 Docs for [AdonisJS v5](https://github.com/lookinlab/adonis-lucid-soft-deletes/tree/v1)
 
 [![npm-image]][npm-url] [![license-image]][license-url] [![typescript-image]][typescript-url]
 
 This addon adds the functionality to soft deletes Lucid Models through the `deleted_at` flag
-> Works with `@adonisjs/lucid@^21.1.*`
 
 Sometimes use the `deleted_at` flag for soft deletes could be not good way. More [about it](https://brandur.org/soft-deletion)
 
@@ -26,20 +27,43 @@ Install it using `npm`, `yarn` or `pnpm`.
 
 ```bash
 # npm
-npm i adonis-lucid-soft-deletes
+npm i @minkbear/adonis-lucid-soft-deletes
 
 # yarn
-yarn add adonis-lucid-soft-deletes
+yarn add @minkbear/adonis-lucid-soft-deletes
 
 # pnpm
-pnpm add adonis-lucid-soft-deletes
+pnpm add @minkbear/adonis-lucid-soft-deletes
 ```
 
 After install call `configure`:
 
 ```bash
-node ace configure adonis-lucid-soft-deletes
+node ace configure @minkbear/adonis-lucid-soft-deletes
 ```
+
+## Migrating from adonis-lucid-soft-deletes
+
+AdonisJS 6 projects stay on the original package. To move an AdonisJS 7 project to this package:
+
+1. Swap the dependency:
+
+   ```bash
+   npm uninstall adonis-lucid-soft-deletes
+   npm i @minkbear/adonis-lucid-soft-deletes
+   ```
+
+2. Update the imports:
+
+   ```ts
+   import { SoftDeletes } from '@minkbear/adonis-lucid-soft-deletes'
+   ```
+
+3. Update the provider in `adonisrc.ts`:
+
+   ```ts
+   () => import('@minkbear/adonis-lucid-soft-deletes/provider'),
+   ```
 
 ## Usage
 
@@ -48,7 +72,7 @@ Make sure to register the provider inside `adonisrc.ts` file.
 ```ts
 providers: [
   // ...
-  () => import('adonis-lucid-soft-deletes/provider'),
+  () => import('@minkbear/adonis-lucid-soft-deletes/provider'),
 ]
 ```
 
@@ -75,7 +99,7 @@ export default class Users extends BaseSchema {
 
 ```ts
 import { compose } from '@adonisjs/core/helpers'
-import { SoftDeletes } from 'adonis-lucid-soft-deletes'
+import { SoftDeletes } from '@minkbear/adonis-lucid-soft-deletes'
 
 export default class User extends compose(BaseModel, SoftDeletes) {
   // ...columns and props
@@ -134,7 +158,7 @@ export default class UsersController {
 
 ```ts
 import { compose } from '@adonisjs/core/helpers'
-import { SoftDeletes } from 'adonis-lucid-soft-deletes'
+import { SoftDeletes } from '@minkbear/adonis-lucid-soft-deletes'
 
 export default class User extends compose(BaseModel, SoftDeletes) {
   // ...columns and props
@@ -256,11 +280,11 @@ await User.query().withTrashed().exec()
 await User.query().onlyTrashed().restore()
 ```
 
-[npm-image]: https://img.shields.io/npm/v/adonis-lucid-soft-deletes?logo=npm&style=for-the-badge
-[npm-url]: https://www.npmjs.com/package/adonis-lucid-soft-deletes
+[npm-image]: https://img.shields.io/npm/v/@minkbear/adonis-lucid-soft-deletes?logo=npm&style=for-the-badge
+[npm-url]: https://www.npmjs.com/package/@minkbear/adonis-lucid-soft-deletes
 
-[license-image]: https://img.shields.io/npm/l/adonis-lucid-soft-deletes?style=for-the-badge&color=blueviolet
-[license-url]: https://github.com/lookinlab/adonis-lucid-soft-deletes/blob/develop/LICENSE.md
+[license-image]: https://img.shields.io/npm/l/@minkbear/adonis-lucid-soft-deletes?style=for-the-badge&color=blueviolet
+[license-url]: https://github.com/minkbear/adonis-lucid-soft-deletes/blob/master/LICENSE.md
 
-[typescript-image]: https://img.shields.io/npm/types/adonis-lucid-soft-deletes?color=294E80&label=%20&logo=typescript&style=for-the-badge
-[typescript-url]: https://github.com/lookinlab
+[typescript-image]: https://img.shields.io/npm/types/@minkbear/adonis-lucid-soft-deletes?color=294E80&label=%20&logo=typescript&style=for-the-badge
+[typescript-url]: https://github.com/minkbear/adonis-lucid-soft-deletes
