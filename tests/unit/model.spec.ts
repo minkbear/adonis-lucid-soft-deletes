@@ -14,8 +14,8 @@ import { compose } from '@adonisjs/core/helpers'
 import { createDatabase, createTables } from '../helpers.js'
 import { SoftDeletes } from '../../src/mixin.js'
 import { extendModelQueryBuilder } from '../../src/bindings/model_query_builder.js'
-import { BaseModelFilter, Filterable } from 'adonis-lucid-filter'
-import { extendModelQueryBuilder as extendFilterableModelQueryBuilder } from 'adonis-lucid-filter/bindings'
+import { BaseModelFilter, Filterable } from '@dirupt/adonis-lucid-filter'
+import { extendModelQueryBuilder as extendFilterableModelQueryBuilder } from '@dirupt/adonis-lucid-filter/bindings'
 
 test.group('BaseModelWithSoftDeletes', (group) => {
   group.setup(() => {
