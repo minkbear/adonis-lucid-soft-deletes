@@ -1,9 +1,9 @@
 {
-  "name": "adonis-lucid-soft-deletes",
+  "name": "@minkbear/adonis-lucid-soft-deletes",
   "description": "Addon for soft deletes AdonisJS Lucid ORM",
   "version": "2.1.0",
   "engines": {
-    "node": ">=20.6.0"
+    "node": ">=24"
   },
   "main": "./build/index.js",
   "type": "module",
@@ -70,14 +70,17 @@
     "@adonisjs/lucid": "^22.1.1"
   },
   "author": "LookinGit",
+  "contributors": [
+    "minkbear"
+  ],
   "license": "MIT",
-  "homepage": "https://github.com/lookinlab/adonis-lucid-soft-deletes#readme",
+  "homepage": "https://github.com/minkbear/adonis-lucid-soft-deletes#readme",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/lookinlab/adonis-lucid-soft-deletes.git"
+    "url": "git+ssh://git@github.com/minkbear/adonis-lucid-soft-deletes.git"
   },
   "bugs": {
-    "url": "https://github.com/lookinlab/adonis-lucid-soft-deletes/issues"
+    "url": "https://github.com/minkbear/adonis-lucid-soft-deletes/issues"
   },
   "keywords": [
     "adonisjs",
