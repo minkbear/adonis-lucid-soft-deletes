@@ -90,6 +90,7 @@
     "adonis-soft-deletes"
   ],
   "eslintConfig": {
+    "root": true,
     "extends": "@adonisjs/eslint-config/package"
   },
   "prettier": "@adonisjs/prettier-config",
