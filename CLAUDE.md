@@ -27,6 +27,7 @@ Tests use SQLite only. SQLite is also the agreed database for the real-app check
 - **Package name:** always use the scoped name `@minkbear/adonis-lucid-soft-deletes`. npm reads `minkbear/adonis-lucid-soft-deletes` as a GitHub shorthand, and installing from GitHub does not provide `build/`.
 - **Provider name:** `configure.ts` writes the provider path into the user's `adonisrc.ts`. It must use the scoped name.
 - **`Exception` import:** import from `@adonisjs/core/exceptions`. Do not import from `@poppinss/utils`, which is not a declared dependency and fails under pnpm with `hoist=false`.
+- **Provider reference:** keep `preserve="true"` on the `/// <reference>` in the provider. Without it TypeScript drops the directive from the `.d.ts`, and apps lose the `withTrashed` and `onlyTrashed` query builder types. Only the real-app `tsc` check catches this.
 - **Version:** do not edit `version` by hand. `np` sets it during release.
 - **Attribution:** keep the Lookin Anton copyright in `LICENSE.md` and in file headers. Keep the original author on commits taken from other forks.
 
